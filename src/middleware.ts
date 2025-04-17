@@ -10,6 +10,16 @@ export default async function middleware(req: NextRequest) {
     const isPublicRoute = publicRoutes.includes(path);
 
     const cookie = req.cookies.get('session')?.value;
+
+    // If there's no cookie at all, handle unauthenticated access
+    if (!cookie) {
+        if (isProtectedRoute) {
+            return NextResponse.redirect(new URL("/", req.nextUrl));
+        }
+        return NextResponse.next(); // No session cookie, allow access to public routes
+    }
+
+    // Try to decrypt if cookie exists
     const session = await decrypt(cookie);
 
     if (isProtectedRoute && !session?.userId) {
