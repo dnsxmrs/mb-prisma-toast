@@ -1,0 +1,4 @@
+# ignore generated or noisy files
+/generated
+/scripts
+/legacy-code
