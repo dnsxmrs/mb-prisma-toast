@@ -1,15 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --font-poppins: 'Poppins', sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: var(--color-primary-dark);
+  --foreground: var(--color-text);
+
+  --color-primary-dark: #1E3A8A;
+  --color-primary-sky: #3B82F6;
+  --color-secondary-dark: #1E40AF;
+  --color-secondary-sky: #60A5FA;
+  --color-subtle-light: #DBEAFE;
+  --color-gradient-blue: linear-gradient(to right, #1E3A8A, #3B82F6);
+  --color-text: #FFFFFF;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +26,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
 }
