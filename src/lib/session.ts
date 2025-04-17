@@ -41,7 +41,7 @@ export async function decrypt(session: string | undefined = "") {
             algorithms: ["HS256"],
         });
         return payload;
-    } catch (e) {
-        console.log("Failed to verify session token: error", e);
+    } catch (error) {
+        console.log("Failed to verify session token:", error);
     }
 }
