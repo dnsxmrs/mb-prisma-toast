@@ -24,6 +24,8 @@ export async function getAuthUser() {
         // Remove sensitive data before returning
         const { hashed_password, ...safeUser } = user;
 
+        console.log("User found:", hashed_password);
+
         return safeUser;
     } catch (error) {
         console.error("Error in getCurrentUser:", error);

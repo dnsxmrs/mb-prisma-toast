@@ -11,7 +11,7 @@ const signInSchema = z.object({
     password: z.string().min(8, 'Password must be at least 8 characters').trim(),
 })
 
-export async function signIn(prevState: any, formData: FormData) {
+export async function signIn(prevState: unknown, formData: FormData) {
     let success = false;
 
     const raw = {
@@ -38,6 +38,7 @@ export async function signIn(prevState: any, formData: FormData) {
 
         success = true;
     } catch (e) {
+        console.error('Error in signIn:', e)
         return { errors: { form: ['Internal server error'] } }
     } finally {
         await prisma.$disconnect()
