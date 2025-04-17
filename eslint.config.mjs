@@ -12,9 +12,7 @@ const compat = new FlatCompat({
 const eslintConfig = [
   {
     ignores: [
-      "generated/**",          // Example: exclude auto-generated files
-      "scripts/**",            // Example: exclude scripts
-      "app/(playground)/**",   // Example: exclude a specific app folder
+      "src/app/generated/**",   // ✅ properly ignore this folder
     ],
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
